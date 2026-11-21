@@ -1,0 +1,55 @@
+Submitted by Galit Kopyt and Emilie barad
+_____________________________
+
+Exercise 1 
+
+Q1. How many files are there?
+
+There are 6 output data files (part-00000 through part-00005), plus one _SUCCESS file, for a total of 7 files.
+
+Q2. Did the number of mappers change?
+
+No. The number of launched map tasks remained 9 in both runs.
+
+Q3. Did the number of reducers change?
+
+Yes. The number of launched reduce tasks increased from 3 to 6.
+
+Q4. Did the number of output files change? Why?
+
+Yes. The number of output data files increased from 3 to 6 because each reducer generates its own output partition file. Increasing the number of reducers therefore increased the number of output data files.
+
+Q5. What does the value of 'Merged Map outputs' represent, and how is it calculated?
+
+The 'Merged Map outputs' counter indicates how many map outputs were merged during the shuffle and merge process.
+In our experiment, we had 9 map tasks. With 3 reducers, the counter was 27 (9 × 3). After increasing the number of reducers to 6, the counter increased to 54 (9 × 6). 
+
+______________________________
+
+Exercise 2 
+
+Q1. Is your change in the mapper or in the reducer? 
+
+The change is in the Mapper. The Mapper removes trailing commas and periods from words and converts all words to lowercase before sending them to the Reducer. This ensures that words with different capitalization or trailing punctuation are counted together.
+
+Q2. Please provide your code on GitHub.
+
+The code is available in the GitHub repository under the Exercise 2 folder.
+
+______________________________
+
+Exercise 3
+
+Q1. Is your change in the mapper or in the reducer?
+
+The change is in the Reducer. The Reducer calculates the total count for each word, sorts the results in descending order by frequency, and outputs only the three most frequent words. We used one Reducer to ensure that exactly three results are returned.
+
+Q2. Please provide your code on GitHub.
+
+The code is available in the GitHub repository under the Exercise 3 folder.
+
+______________________________
+
+Q3. Provide a screenshot of the output and the HDFS output directory listing.
+
+The screenshot is available in the GitHub repository under the Exercise 3 folder.
